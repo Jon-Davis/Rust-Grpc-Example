@@ -1,0 +1,16 @@
+[package]
+name = "grpc-example"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+prost = "0.9"                   # Prost is a libarary that generates rust code from protofiles
+tonic = "0.6"                   # Tonic is a libarary that implements GRPC
+tracing = "0.1"                 # Tracing is an asynchronous logging facade
+tracing-subscriber = "0.2.0"    # Tracing subscriber is the logging implementation 
+futures = "0.3"                 # Futures is a crate that provides
+tokio = { version = "1.0", features = ["macros", "rt-multi-thread", "parking_lot"] }    # Tokio is an asynchronous runtime
+sqlx = { version = "0.5", features = [ "runtime-tokio-rustls", "sqlite" ] }             # Sqlx is a library that provides asynchronous drivers for Postgres, Sqlite, and MySql
+
+[build-dependencies]
+tonic-build = "0.6"             # Tonic build is a library for compiling protofiles at build time.

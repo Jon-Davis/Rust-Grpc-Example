@@ -1,0 +1,25 @@
+syntax = "proto3";
+package users;
+
+service UserService {
+    rpc GetGreeting (GetGreetingRequest) returns (GetGreetingResponse);
+    rpc UpdateUser (User) returns (UpdateUserResponse);
+    rpc GetAllUsers (GetAllRequest) returns (stream User);
+}
+
+message GetGreetingRequest {
+    string name = 1;
+}
+
+message GetGreetingResponse {
+    string response = 1;
+}
+
+message User {
+    string name = 1;
+    string greeting = 2;
+}
+
+message UpdateUserResponse {}
+
+message GetAllRequest {}
